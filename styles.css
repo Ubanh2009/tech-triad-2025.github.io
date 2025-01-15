@@ -1,0 +1,136 @@
+
+  
+body {    
+    background:black;       
+}
+.logo-img {
+    width: 100px;
+    height: auto;
+}
+.nav{
+    background-color: black;
+}
+   /* Remove white border and make navbar completely black */
+   .navbar {
+    border: none !important; /* Remove any border */
+    background-color: black !important; /* Set background to black */
+}
+
+/* Optional: Remove any box-shadow from the navbar */
+.navbar.navbar-expand-lg {
+    box-shadow: none !important;
+}
+
+/* Adjust the navbar brand and links to be white */
+.navbar-brand, .navbar-nav .nav-link {
+    color: rgb(0, 0, 0) !important;
+}
+
+.navbar{
+    position:fixed;
+    width:100%;
+    top:0%;
+    background-color: #000000;
+}
+.head-text{
+    text-align: center;
+    color: white;
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-size: 9rem;  
+}
+
+.button-body{
+    background-color: black;
+    font-weight: bold;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 8px;
+}
+.nav-pills{
+    align-items: end;
+}
+.button-body:hover{
+    transform: scale(1.1); 
+    
+}
+.navbar-collapse{
+    background-color: #000000;
+}
+.img-container img {
+    width: 40%; 
+    height: auto;
+}
+.Image {
+    height:10px;
+    margin: 15px;
+}
+
+.navbar-bg{
+    background-color:black;
+}
+
+/* Container to hold the elements */
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1000px;
+    position: fixed;
+}
+
+/* Circular images */
+.image-circular {
+    border-radius: 50%;
+    width: 150px;
+    height: 150PX;
+    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Rounded square images */
+.image-rounded-square {
+    width: 150px;
+    height: 150px;
+    background-color: #e74c3c;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+/* Circular Images with your actual images */
+#image1 {
+    background-image: url(fp3.png);
+}
+#image2 {
+    background-image: url(fp2.png);
+}
+/* Rounded Square Images with your actual images */
+#image3 {
+    background-image: url(fp1.png); 
+}
+#image4 {
+    background-image: url(download.jpg); 
+}
+
+
+/* Center button */
+.center-button {
+    padding: 20px 40px;
+    background-color: #2ecc71;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Optional: Adjust button on hover */
+.center-button:hover {
+    background-color: #27ae60;
+}
