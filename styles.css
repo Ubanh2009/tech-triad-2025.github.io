@@ -31,6 +31,7 @@ body {
     width:100%;
     top:0%;
     background-color: #000000;
+    border-color: #000000;
 }
 .head-text{
     text-align: center;
@@ -134,3 +135,7 @@ body {
 .center-button:hover {
     background-color: #27ae60;
 }
+ .nav-items{
+    color: white;
+
+ }
