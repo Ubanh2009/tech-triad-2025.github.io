@@ -9,14 +9,22 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.animation-delay-500 {
-  animation-delay: 0.5s;
+.bg-frost-white {
+  background-color: #f7f7f7;
 }
 
-.animation-delay-1000 {
-  animation-delay: 1s;
+.text-frost-white {
+  color: #f0f0f0;
 }
 
-.animation-delay-1500 {
-  animation-delay: 1.5s;
+.dark .bg-frost-white {
+  background-color: #1a202c;
+}
+
+.dark .text-frost-white {
+  color: #eaeaea;
+}
+
+.text-gray-custom-light {
+  color: #1a202c;
 }

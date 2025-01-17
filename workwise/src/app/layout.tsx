@@ -1,10 +1,9 @@
-// src/app/layout.tsx
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import './globals.css'
 import React from 'react'
 
-const inter = Inter({ subsets: ['latin'] })
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['100', '400', '500', '600', '700'] })
 
 export const metadata: Metadata = {
   title: 'WorkWise',
@@ -24,7 +23,7 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${montserrat.className} bg-white text-gray-900 dark:bg-gray-900 dark:text-white`}>
         {children}
       </body>
     </html>
