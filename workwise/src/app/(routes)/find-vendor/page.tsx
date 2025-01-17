@@ -118,26 +118,10 @@ const Navbar = () => {
 const FilterModal = ({
   isOpen,
   onClose,
-  onApplyFilters,
 }: {
   isOpen: boolean;
   onClose: () => void;
-  onApplyFilters: (filters: { industry: string; organization: string }) => void;
 }) => {
-  const [industry, setIndustry] = useState('');
-  const [organization, setOrganization] = useState('');
-
-  const industries = ['Technology', 'Manufacturing', 'Consulting', 'Healthcare', 'Education']; // Example options
-  const Certified = [
-    'IOCL', 'EIL', 'ONGC', 'HPCL', 'SAIL', 'NTPC', 'PDIL', 'NALCO', 'BHEL', 'MRPL', 'BPCL', 'GAIL',
-    'OIL', 'NHPC', 'CET', 'CIL', 'PGCI', 'NPCIL', 'BPIL', 'IGGL', 'VEDANTA'
-  ];
-
-  const applyFilters = () => {
-    onApplyFilters({ industry, organization });
-    onClose();
-  };
-
   if (!isOpen) return null;
 
   return (
@@ -150,7 +134,6 @@ const FilterModal = ({
           </button>
         </div>
         <div className="space-y-4">
-          {/* Industry Dropdown */}
           <div>
             <label htmlFor="industry" className="block text-sm font-medium text-gray-700">
               Industry
@@ -203,36 +186,6 @@ const FilterModal = ({
   );
 };
 
-// VendorCard Component
-const VendorCard = ({ vendor }: { vendor: Vendor }) => (
-  <div className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-shadow">
-    <h2 className="text-xl font-semibold">{vendor.name}</h2>
-    <p className="text-gray-600">{vendor.industry}</p>
-    <div className="mt-2">
-      <span className="font-bold">Rating: {vendor.rating}/5</span>
-      <div className="mt-2">
-        <strong>Specialties:</strong>
-        <ul className="list-disc list-inside">
-          {vendor.specialties.map((specialty) => (
-            <li key={specialty} className="text-gray-700">{specialty}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </div>
-);
-
-// Search Bar Component
-const SearchBar = ({ value, onChange }: { value: string; onChange: (value: string) => void }) => (
-  <input
-    type="text"
-    placeholder="Search vendors by name or industry..."
-    className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
-    value={value}
-    onChange={(e) => onChange(e.target.value)}
-  />
-);
-
 // Main Page Component
 export default function FindVendorPage() {
   const [vendors, setVendors] = useState<Vendor[]>(MOCK_VENDORS);
@@ -255,16 +208,6 @@ export default function FindVendorPage() {
       <div className="container mx-auto p-4 pt-20">
         <h1 className="text-3xl font-bold mb-6">Find Vendor</h1>
 
-        <div className="flex items-center gap-4 mb-8">
-          <SearchBar value={searchTerm} onChange={setSearchTerm} />
-          <button
-            onClick={() => setIsFilterModalOpen(true)}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md shadow-md"
-          >
-            Filters
-          </button>
-        </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredVendors.map((vendor) => (
             <VendorCard key={vendor.id} vendor={vendor} />
@@ -277,12 +220,6 @@ export default function FindVendorPage() {
           </div>
         )}
       </div>
-
-      <FilterModal
-        isOpen={isFilterModalOpen}
-        onClose={() => setIsFilterModalOpen(false)}
-        onApplyFilters={setFilters}
-      />
     </div>
   );
 }
