@@ -1,62 +1,125 @@
 // src/app/page.tsx
-import Image from "next/image";
-import Link from "next/link";
+import Link from 'next/link'
+import './home.css'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1 className="text-4xl font-bold text-center sm:text-left">
-          WorkWise RFQ Platform
-        </h1>
-        
-        <div className="grid md:grid-cols-3 gap-6 w-full">
-          <Link 
-            href="/find-vendor" 
-            className="bg-white shadow-md rounded-lg p-6 text-center hover:bg-gray-100 transition"
-          >
-            <h2 className="text-2xl font-semibold mb-4">Find Vendors</h2>
-            <p className="text-gray-600">Search and discover potential vendors</p>
-          </Link>
+    <div className="bg-gradient-to-br from-blue-50 to-white min-h-screen overflow-hidden">
+      {/* Floating Shapes for Visual Interest */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="floating-shape floating-shape-1"></div>
+        <div className="floating-shape floating-shape-2"></div>
+        <div className="floating-shape floating-shape-3"></div>
+      </div>
 
-          <Link 
-            href="/create-rfq" 
-            className="bg-white shadow-md rounded-lg p-6 text-center hover:bg-gray-100 transition"
-          >
-            <h2 className="text-2xl font-semibold mb-4">Create RFQ</h2>
-            <p className="text-gray-600">Generate new Request for Quotation</p>
-          </Link>
+      <div className="container mx-auto px-4 py-16 relative z-10">
+        {/* Hero Section with Animated Entrance */}
+        <div className="text-center mb-16 animate-fade-in-up">
+          <h1 className="text-5xl font-extrabold text-blue-900 mb-4 typing-animation">
+            WorkWise RFQ Platform
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto fade-in-delay">
+            Revolutionize your procurement process with intelligent vendor management and streamlined quotation workflows
+          </p>
+        </div>
 
+        {/* Feature Cards with Staggered Animation */}
+        <div className="grid md:grid-cols-3 gap-8 feature-cards">
+          <FeatureCard 
+            title="Find Vendors" 
+            description="Discover top-rated vendors across multiple industries"
+            icon="🔍"
+            link="/find-vendor"
+            delay={0}
+          />
+          <FeatureCard 
+            title="Create RFQ" 
+            description="Generate comprehensive Request for Quotations effortlessly"
+            icon="📝"
+            link="/create-rfq"
+            delay={200}
+          />
+          <FeatureCard 
+            title="RFQ Management" 
+            description="Track, analyze, and compare vendor responses"
+            icon="📊"
+            link="/rfq-management"
+            delay={400}
+          />
+        </div>
+
+        {/* Animated Call to Action */}
+        <div className="text-center mt-16 pulse-animation">
           <Link 
-            href="/rfq-management" 
-            className="bg-white shadow-md rounded-lg p-6 text-center hover:bg-gray-100 transition"
+            href="/magic-search" 
+            className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg transform hover:scale-105 hover:shadow-xl"
           >
-            <h2 className="text-2xl font-semibold mb-4">RFQ Management</h2>
-            <p className="text-gray-600">Track and manage your RFQs</p>
+            Get Started with Magic Search
           </Link>
         </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row mt-8">
-          <Link
-            href="/magic-search"
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-          >
-            Magic Search
-          </Link>
-          <Link
-            href="/comparison"
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-          >
-            Vendor Comparison
-          </Link>
+        {/* Benefits Section with Fade In */}
+        <div className="mt-20 bg-white shadow-xl rounded-lg p-12 animate-fade-in">
+          <h2 className="text-3xl font-bold text-center mb-10 text-blue-900">
+            Why Choose WorkWise?
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <BenefitItem 
+              title="Efficiency" 
+              description="Reduce procurement cycle time by up to 60%"
+            />
+            <BenefitItem 
+              title="Transparency" 
+              description="Clear vendor comparison and evaluation metrics"
+            />
+            <BenefitItem 
+              title="Cost Savings" 
+              description="Optimize vendor selection and negotiation strategies"
+            />
+          </div>
         </div>
-      </main>
-
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <p className="text-sm text-gray-500">
-          © 2024 WorkWise RFQ Platform. TechTriad Hackathon Project.
-        </p>
-      </footer>
+      </div>
     </div>
-  );
+  )
+}
+
+function FeatureCard({ 
+  title, 
+  description, 
+  icon, 
+  link,
+  delay 
+}: { 
+  title: string, 
+  description: string, 
+  icon: string, 
+  link: string,
+  delay: number 
+}) {
+  return (
+    <Link 
+      href={link} 
+      style={{transitionDelay: `${delay}ms`}}
+      className="bg-white rounded-xl shadow-md p-6 transform hover:scale-105 transition-all hover:shadow-xl feature-card"
+    >
+      <div className="text-5xl mb-4">{icon}</div>
+      <h3 className="text-xl font-bold mb-2 text-blue-900">{title}</h3>
+      <p className="text-gray-600">{description}</p>
+    </Link>
+  )
+}
+
+function BenefitItem({ 
+  title, 
+  description 
+}: { 
+  title: string, 
+  description: string 
+}) {
+  return (
+    <div className="text-center benefit-item">
+      <h4 className="text-xl font-semibold text-blue-800 mb-3">{title}</h4>
+      <p className="text-gray-600">{description}</p>
+    </div>
+  )
 }
