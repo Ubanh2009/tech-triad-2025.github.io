@@ -1,5 +1,15 @@
 // src/app/layout.tsx
-import { Navbar } from '@/components/Navbar'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import React from 'react'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'WorkWise',
+  description: 'Procurement Platform',
+}
 
 export default function RootLayout({
   children,
@@ -8,11 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <Navbar />
-        <main>
-          {children}
-        </main>
+      <head>
+        <link 
+          rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+        />
+      </head>
+      <body className={inter.className}>
+        {children}
       </body>
     </html>
   )
