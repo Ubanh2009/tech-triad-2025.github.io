@@ -1,27 +1,28 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Menu, User, X } from 'lucide-react';
-import { MOCK_VENDORS, Vendor } from '@/lib/mockData';
+import { MOCK_VENDORS, Vendor } from '@/lib/mockData'; // Retained mock data import
+import Link from 'next/link'; // Use Link component for routing
 
 // Navbar Component
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Search Vendor', active: true },
-    { name: 'Magic Search' },
-    { name: 'RFQ Management' },
-    { name: 'Technical Evaluation' },
-    { name: 'Compare received quotes' },
+    { name: 'Search Vendor', href: '/find-vendor', active: true },
+    { name: 'Magic Search', href: '/magic-search' },
+    { name: 'RFQ Management', href: '/rfq-management' },
+    { name: 'Technical Evaluation', href: '/technical-evaluation' },
+    { name: 'Compare received quotes', href: '/comparison' },
   ];
 
   const dropdownLinks = [
-    { name: 'My Account', active: true },
-    { name: 'Edit Profile' },
-    { name: 'Vendor Management' },
-    { name: 'Project Management' },
-    { name: 'Change Password' },
-    { name: 'Logout' },
+    { name: 'My Account', href: '/account', active: true },
+    { name: 'Edit Profile', href: '/edit-profile' },
+    { name: 'Vendor Management', href: '/vendor-management' },
+    { name: 'Project Management', href: '/project-management' },
+    { name: 'Change Password', href: '/change-password' },
+    { name: 'Logout', href: '/logout' },
   ];
 
   return (
@@ -34,15 +35,15 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link, index) => (
-              <a
-                key={index}
-                href="#"
-                className={`text-sm font-medium ${
-                  link.active ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
-                }`}
-              >
-                {link.name}
-              </a>
+              <Link key={index} href={link.href}>
+                <span
+                  className={`text-sm font-medium ${
+                    link.active ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
+                  }`}
+                >
+                  {link.name}
+                </span>
+              </Link>
             ))}
           </div>
 
@@ -66,15 +67,17 @@ const Navbar = () => {
             {isOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50">
                 {dropdownLinks.map((link, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className={`block px-4 py-2 text-sm ${
-                      link.active ? 'text-blue-600 dark:text-blue-400 bg-gray-50 dark:bg-gray-900' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-                    }`}
-                  >
-                    {link.name}
-                  </a>
+                  <Link key={index} href={link.href}>
+                    <span
+                      className={`block px-4 py-2 text-sm ${
+                        link.active
+                          ? 'text-blue-600 dark:text-blue-400 bg-gray-50 dark:bg-gray-900'
+                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                      }`}
+                    >
+                      {link.name}
+                    </span>
+                  </Link>
                 ))}
               </div>
             )}
@@ -85,27 +88,31 @@ const Navbar = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    link.active ? 'text-blue-600 dark:text-blue-400 bg-gray-50 dark:bg-gray-900' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-                  }`}
-                >
-                  {link.name}
-                </a>
+                <Link key={index} href={link.href}>
+                  <span
+                    className={`block px-3 py-2 rounded-md text-base font-medium ${
+                      link.active
+                        ? 'text-blue-600 dark:text-blue-400 bg-gray-50 dark:bg-gray-900'
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                    }`}
+                  >
+                    {link.name}
+                  </span>
+                </Link>
               ))}
               <hr className="my-2 border-gray-200" />
               {dropdownLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    link.active ? 'text-blue-600 dark:text-blue-400 bg-gray-50 dark:bg-gray-900' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-                  }`}
-                >
-                  {link.name}
-                </a>
+                <Link key={index} href={link.href}>
+                  <span
+                    className={`block px-3 py-2 rounded-md text-base font-medium ${
+                      link.active
+                        ? 'text-blue-600 dark:text-blue-400 bg-gray-50 dark:bg-gray-900'
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                    }`}
+                  >
+                    {link.name}
+                  </span>
+                </Link>
               ))}
             </div>
           </div>
@@ -124,10 +131,7 @@ const SearchBar = ({ value, onChange }: { value: string; onChange: (value: strin
     value={value}
     onChange={(e) => onChange(e.target.value)}
   />
-
 );
-<button className="px-4 py-2 bg-blue-600 text-white rounded-md shadow-md" >Magic</button>
-
 
 // VendorCard Component
 const VendorCard = ({ vendor, onClick }: { vendor: Vendor; onClick: () => void }) => (
@@ -265,7 +269,6 @@ const FilterModal = ({
             Apply Filters
           </button>
         </div>
-        
       </div>
     </div>
   );
@@ -344,6 +347,5 @@ export default function FindVendorPage() {
         onApplyFilters={setFilters}
       />
     </div>
-    
   );
 }

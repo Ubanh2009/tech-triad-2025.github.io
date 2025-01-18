@@ -10,7 +10,7 @@ export function Navbar() {
           <Link href="/find-vendor" className="hover:text-blue-600">Find Vendors</Link>
           <Link href="/create-rfq" className="hover:text-blue-600">Create RFQ</Link>
           <Link href="/rfq-management" className="hover:text-blue-600">RFQ Management</Link>
-          <Link href="/magic-search" className="hover:text-blue-600">Magic Search</Link>
+          <Link href="/magic-search" className="hover:text-blue-600">Magic Search</Link> {/* New Link for Magic Search */}
           <Link href="/comparison" className="hover:text-blue-600">Comparison</Link>
         </div>
       </div>

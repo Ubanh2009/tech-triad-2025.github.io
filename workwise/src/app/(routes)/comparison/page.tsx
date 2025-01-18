@@ -1,3 +1,4 @@
+'use client';
 export default function ComparisonPage() {
   return (
     <div className="container mx-auto p-4">
