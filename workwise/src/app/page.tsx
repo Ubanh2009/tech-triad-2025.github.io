@@ -11,6 +11,7 @@ export default function Home() {
           <div className="space-x-6 flex items-center">
             <Link href="#" className="text-gray-300 hover:text-white transition">Home</Link>
             <Link href="#" className="text-gray-300 hover:text-white transition">For Vendors</Link>
+            <Link href="" className="text-gray-300 hover:text-white transition">Magic Search</Link>
             <Link href="#" className="text-gray-300 hover:text-white transition">About</Link>
             <Link href="#" className="text-gray-300 hover:text-white transition">Contact</Link>
             <div className="space-x-4">

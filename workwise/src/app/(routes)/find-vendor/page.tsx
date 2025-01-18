@@ -9,6 +9,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Search Vendor', active: true },
+    { name: 'Magic Search' },
     { name: 'RFQ Management' },
     { name: 'Technical Evaluation' },
     { name: 'Compare received quotes' },

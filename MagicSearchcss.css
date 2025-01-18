@@ -1,0 +1,30 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  .flex-container {
+    display: flex;
+    justify-content: flex-start; /* Align to left */
+    width: 50%; /* Take up 50% of the page width */
+    height: 100%; /* Full height */
+    background-color: lightblue; /* Optional, for visibility */
+    padding: 20px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: Arial, sans-serif;
+  }
+
+  .content h2 {
+    margin-bottom: 10px;
+  }
+
+  .content p {
+    margin: 5px 0;
+  }
