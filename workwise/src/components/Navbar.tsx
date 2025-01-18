@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <img src="logo.jpeg" alt="Logo" width="180" height="60" />
+          <a className="text-2xl font-bold">WorkWise&nbsp;&nbsp;&nbsp;&nbsp;</a>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">

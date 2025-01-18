@@ -27,6 +27,15 @@ const RFQCreationPage = () => {
 
       <main className="pt-24 px-8">
         <div className="max-w-7xl mx-auto">
+          <div className="flex space-x-4 mb-8">
+            <button className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded dark:hover:bg-gray-700">
+              Manage Group RFQ
+            </button>
+            <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+              Create RFQs
+            </button>
+          </div>
+
           <div className="mb-8">
             <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">Select Project</h4>
             <select 
