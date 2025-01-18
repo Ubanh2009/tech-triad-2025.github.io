@@ -12,7 +12,8 @@ const Navbar = () => {
     { name: 'Search Vendor', href: '/find-vendor', active: true },
     { name: 'Magic Search', href: '/magic-search' },
     { name: 'RFQ Management', href: '/rfq-management' },
-    { name: 'Technical Evaluation', href: '/create-rfq' },
+    { name: 'RFQ Creation', href: '/create-rfq' },
+    { name: 'Technical Evaluation', href: '#' },
     { name: 'Compare received quotes', href: '/comparison' },
   ];
 

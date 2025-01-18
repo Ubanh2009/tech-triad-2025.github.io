@@ -8,10 +8,11 @@ const Page = () => {
 
   // Navbar links
   const navLinks = [
-    { name: 'Search Vendor', href: '/find-vendor', active: false },
+    { name: 'Search Vendor', href: '/find-vendor',},
     { name: 'Magic Search', href: '/magic-search', active: true },
     { name: 'RFQ Management', href: '/rfq-management' },
-    { name: 'Technical Evaluation', href: '/technical-evaluation' },
+    { name: 'RFQ Creation', href: '/create-rfq' },
+    { name: 'Technical Evaluation', href: '#' },
     { name: 'Compare received quotes', href: '/comparison' },
   ];
 

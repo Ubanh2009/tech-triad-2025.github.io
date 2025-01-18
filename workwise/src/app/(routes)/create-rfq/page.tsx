@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { Trash, Plus, File } from 'lucide-react';
+import Navbar from '../../../components/Navbar'; // Import the Navbar component
 
 const RFQCreationPage = () => {
   const [selectedProject, setSelectedProject] = useState('');
@@ -20,35 +21,16 @@ const RFQCreationPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      <nav className="fixed top-0 left-0 right-0 bg-gray-50 shadow-sm">
-        <div className="container mx-auto px-4 py-2 flex items-center justify-between">
-          <img src="/api/placeholder/180/60" alt="Logo" className="h-15 w-45" />
-          <div className="flex space-x-6">
-            <a href="#" className="text-gray-700 hover:text-gray-900">Dashboard</a>
-            <a href="#" className="text-gray-700 hover:text-gray-900">Search Vendor</a>
-            <a href="#" className="text-gray-700 hover:text-gray-900">RFQ Management</a>
-            <a href="#" className="text-gray-700 hover:text-gray-900">Technical Evaluation</a>
-            <a href="#" className="text-gray-700 hover:text-gray-900">Compare received quotes</a>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      {/* Integrate Navbar */}
+      <Navbar />
 
       <main className="pt-24 px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex space-x-4 mb-8">
-            <button className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded">
-              Manage Group RFQ
-            </button>
-            <button className="px-4 py-2 bg-blue-500 text-white rounded">
-              Create RFQs
-            </button>
-          </div>
-
           <div className="mb-8">
-            <h4 className="text-lg font-semibold mb-2">Select Project</h4>
+            <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">Select Project</h4>
             <select 
-              className="w-72 p-2 border rounded"
+              className="w-72 p-2 border rounded focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
               value={selectedProject}
               onChange={(e) => setSelectedProject(e.target.value)}
             >
@@ -57,40 +39,40 @@ const RFQCreationPage = () => {
           </div>
 
           <div className="mb-8">
-            <h4 className="text-lg font-semibold mb-4">Review Products</h4>
+            <h4 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">Review Products</h4>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="bg-gray-50">
-                    <th className="p-4 text-left border">Name of product</th>
-                    <th className="p-4 text-left border">Size & specifications</th>
-                    <th className="p-4 text-left border">Quantity</th>
-                    <th className="p-4 text-left border">Technical Datasheet (TDS)</th>
-                    <th className="p-4 text-left border">Quality Assurance Plan(QAP)</th>
-                    <th className="p-4 text-left border">Product Comments</th>
-                    <th className="p-4 text-left border">Selected vendors</th>
-                    <th className="p-4 text-left border">Action</th>
-                    <th className="p-4 text-left border">Technical Evaluation</th>
+                  <tr className="bg-gray-50 dark:bg-gray-800">
+                    <th className="p-4 text-left border text-gray-900 dark:text-gray-100">Name of product</th>
+                    <th className="p-4 text-left border text-gray-900 dark:text-gray-100">Size & specifications</th>
+                    <th className="p-4 text-left border text-gray-900 dark:text-gray-100">Quantity</th>
+                    <th className="p-4 text-left border text-gray-900 dark:text-gray-100">Technical Datasheet (TDS)</th>
+                    <th className="p-4 text-left border text-gray-900 dark:text-gray-100">Quality Assurance Plan(QAP)</th>
+                    <th className="p-4 text-left border text-gray-900 dark:text-gray-100">Product Comments</th>
+                    <th className="p-4 text-left border text-gray-900 dark:text-gray-100">Selected vendors</th>
+                    <th className="p-4 text-left border text-gray-900 dark:text-gray-100">Action</th>
+                    <th className="p-4 text-left border text-gray-900 dark:text-gray-100">Technical Evaluation</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="p-4 border">{productDetails.name}</td>
+                  <tr className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                    <td className="p-4 border text-gray-900 dark:text-gray-100">{productDetails.name}</td>
                     <td className="p-4 border">
                       <div className="space-y-4">
                         <input
                           type="text"
                           placeholder="Grade, Material and other Specs"
-                          className="w-full p-2 border rounded"
+                          className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
                         />
                         <div className="flex items-center space-x-2">
                           <input
                             type="text"
                             placeholder="Size"
-                            className="w-full p-2 border rounded"
+                            className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
                           />
                           <span>OR</span>
-                          <button className="flex items-center space-x-2 px-4 py-2 border rounded">
+                          <button className="flex items-center space-x-2 px-4 py-2 border rounded dark:bg-gray-700 dark:text-gray-100">
                             <File className="w-4 h-4" />
                             <span>Upload</span>
                           </button>
@@ -110,28 +92,28 @@ const RFQCreationPage = () => {
                       <input
                         type="text"
                         placeholder="Add Comments..."
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
                       />
                     </td>
                     <td className="p-4 border">
-                      <a href="#" className="text-blue-500 hover:underline">
+                      <a href="#" className="text-blue-500 dark:text-blue-300 hover:underline">
                         View selected vendors (1)
                       </a>
                     </td>
                     <td className="p-4 border">
                       <div className="space-y-2">
-                        <button className="flex items-center space-x-2 px-4 py-2 bg-red-500 text-white rounded">
+                        <button className="flex items-center space-x-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
                           <Trash className="w-4 h-4" />
                           <span>Remove</span>
                         </button>
-                        <button className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded">
+                        <button className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                           <Plus className="w-4 h-4" />
                           <span>Add variant</span>
                         </button>
                       </div>
                     </td>
                     <td className="p-4 border">
-                      <button className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded">
+                      <button className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                         <Plus className="w-4 h-4" />
                         <span>Add Clauses</span>
                       </button>
@@ -143,15 +125,15 @@ const RFQCreationPage = () => {
           </div>
 
           <div className="text-right mb-8">
-            <a href="/vendor/all" className="text-blue-500 hover:underline">
+            <a href="/vendor/all" className="text-blue-500 dark:text-blue-300 hover:underline">
               Add More Products
             </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h4 className="text-lg font-semibold mb-4">Suggested Terms</h4>
-              <ol className="list-decimal pl-6 space-y-4">
+              <h4 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">Suggested Terms</h4>
+              <ol className="list-decimal pl-6 space-y-4 text-gray-900 dark:text-gray-100">
                 {suggestedTerms.map((term, index) => (
                   <li key={index} className="flex items-start space-x-2">
                     <input type="checkbox" className="mt-1" defaultChecked />
@@ -164,9 +146,9 @@ const RFQCreationPage = () => {
             <div>
               <form className="space-y-6">
                 <div>
-                  <label className="block mb-2">Add your own terms (Optional)</label>
+                  <label className="block mb-2 text-gray-900 dark:text-gray-100">Add your own terms (Optional)</label>
                   <textarea
-                    className="w-full p-2 border rounded"
+                    className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
                     rows={5}
                     placeholder="You can mention your terms regarding Freight Charges, Payment Terms..."
                   />
@@ -174,22 +156,22 @@ const RFQCreationPage = () => {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block mb-2">Email <span className="text-red-500">*</span></label>
+                    <label className="block mb-2 text-gray-900 dark:text-gray-100">
+                      Email <span className="text-red-500">*</span>
+                    </label>
                     <input
                       type="email"
-                      className="w-full p-2 border rounded"
+                      className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
                       placeholder="Enter Email"
-                      defaultValue="dhruvsaxena220904@gmail.com"
                     />
                   </div>
-                  {/* Add other form fields */}
                 </div>
 
                 <div className="flex space-x-4">
-                  <button type="submit" className="px-6 py-2 bg-gray-500 text-white rounded">
+                  <button type="submit" className="px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
                     Create RFQ
                   </button>
-                  <button type="button" className="px-6 py-2 bg-gray-500 text-white rounded">
+                  <button type="button" className="px-6 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
                     Save Changes
                   </button>
                 </div>
@@ -203,4 +185,3 @@ const RFQCreationPage = () => {
 };
 
 export default RFQCreationPage;
-
