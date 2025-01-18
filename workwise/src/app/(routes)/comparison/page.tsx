@@ -3,25 +3,30 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar'; // Import the Navbar component
 import SearchBar from '@/components/SearchBar'; // Import the SearchBar component
 
+interface RFQData {
+  rfqNumber: string;
+  products: string;
+}
+
 export default function ComparisonPage() {
   const [searchValue, setSearchValue] = useState(''); // State to manage the search input
   const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
-  const [selectedRFQ, setSelectedRFQ] = useState<any>(null); // State for selected RFQ
+  const [selectedRFQ, setSelectedRFQ] = useState<RFQData | null>(null); // State for selected RFQ, more specific type
 
   // Handler to update the search input value
   const handleSearchChange = (value: string) => {
     setSearchValue(value);
   };
 
-  // Sample RFQ data
-  const rfqData = [
+  // Sample RFQ data with specific type
+  const rfqData: RFQData[] = [
     { rfqNumber: 'RFQ-2024-001', products: 'Industrial Pumps, Valves' },
     { rfqNumber: 'RFQ-2024-002', products: 'Electric Motors' },
     { rfqNumber: 'RFQ-2024-003', products: 'Control Systems' },
   ];
 
   // Open the modal with the selected RFQ data
-  const openModal = (rfq: any) => {
+  const openModal = (rfq: RFQData) => {
     setSelectedRFQ(rfq);
     setIsModalOpen(true);
   };
@@ -114,7 +119,7 @@ export default function ComparisonPage() {
                 </tr>
               </thead>
               <tbody>
-                {/* Row for Product A */}
+                {/* Example Rows */}
                 <tr>
                   <td className="px-6 py-4 text-sm text-gray-900 dark:text-gray-100">1</td>
                   <td className="px-6 py-4 text-sm text-gray-900 dark:text-gray-100">Product A</td>
@@ -125,7 +130,6 @@ export default function ComparisonPage() {
                   <td className="px-6 py-4 text-sm text-gray-900 dark:text-gray-100">Price</td>
                 </tr>
 
-                {/* Row for Product B */}
                 <tr>
                   <td className="px-6 py-4 text-sm text-gray-900 dark:text-gray-100">2</td>
                   <td className="px-6 py-4 text-sm text-gray-900 dark:text-gray-100">Product B</td>

@@ -3,9 +3,18 @@ import React, { useState } from 'react';
 import { Trash, Plus, File } from 'lucide-react';
 import Navbar from '../../../components/Navbar'; // Import the Navbar component
 
+interface ProductDetails {
+  name: string;
+  specifications: string;
+  size: string;
+  quantity: string;
+  unit: string;
+  comments: string;
+}
+
 const RFQCreationPage = () => {
-  const [selectedProject, setSelectedProject] = useState('');
-  const [productDetails, setProductDetails] = useState({
+  const [selectedProject, setSelectedProject] = useState<string>(''); // Explicitly typed as string
+  const [productDetails, setProductDetails] = useState<ProductDetails>({
     name: 'VALVE',
     specifications: '',
     size: '',
@@ -44,6 +53,7 @@ const RFQCreationPage = () => {
               onChange={(e) => setSelectedProject(e.target.value)}
             >
               <option value="">Select</option>
+              {/* Add project options here */}
             </select>
           </div>
 
@@ -89,13 +99,23 @@ const RFQCreationPage = () => {
                       </div>
                     </td>
                     <td className="p-4 border">
-                      {/* Add quantity inputs */}
+                      <input
+                        type="number"
+                        placeholder="Enter Quantity"
+                        className="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
+                      />
                     </td>
                     <td className="p-4 border">
-                      {/* Add TDS upload */}
+                      <button className="flex items-center space-x-2 px-4 py-2 border rounded dark:bg-gray-700 dark:text-gray-100">
+                        <File className="w-4 h-4" />
+                        <span>Upload TDS</span>
+                      </button>
                     </td>
                     <td className="p-4 border">
-                      {/* Add QAP upload */}
+                      <button className="flex items-center space-x-2 px-4 py-2 border rounded dark:bg-gray-700 dark:text-gray-100">
+                        <File className="w-4 h-4" />
+                        <span>Upload QAP</span>
+                      </button>
                     </td>
                     <td className="p-4 border">
                       <input

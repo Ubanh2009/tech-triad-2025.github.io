@@ -1,21 +1,30 @@
 'use client';
 import React, { useState } from 'react';
-import { Menu, User, Eye, Bell } from 'lucide-react';
+import { Menu, User } from 'lucide-react';
 import Link from 'next/link';
+
+// Define the type for the links
+interface LinkType {
+  name: string;
+  href: string;
+  active?: boolean; // optional active property
+}
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
+  // Navigation links
+  const navLinks: LinkType[] = [
     { name: 'Search Vendor', href: '/find-vendor' },
     { name: 'Magic Search', href: '/magic-search' },
-    { name: 'RFQ Management', href: '/rfq-management',},
-    { name: 'RFQ Creation', href: '/create-rfq',},
+    { name: 'RFQ Management', href: '/rfq-management' },
+    { name: 'RFQ Creation', href: '/create-rfq' },
     { name: 'Technical Evaluation', href: '#' },
     { name: 'Compare received quotes', href: '/comparison' },
   ];
 
-  const dropdownLinks = [
+  // Dropdown links
+  const dropdownLinks: LinkType[] = [
     { name: 'My Account', href: '/account', active: true },
     { name: 'Edit Profile', href: '/edit-profile' },
     { name: 'Vendor Management', href: '/vendor-management' },
@@ -29,7 +38,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-          <a className="text-2xl font-bold">WorkWise&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a className="text-2xl font-bold">WorkWise&nbsp;&nbsp;&nbsp;&nbsp;</a>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -37,7 +46,9 @@ const Navbar = () => {
               <Link key={index} href={link.href}>
                 <span
                   className={`text-sm font-medium ${
-                    link.active ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
+                    link.active
+                      ? 'text-blue-600 dark:text-blue-400'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
                   }`}
                 >
                   {link.name}
