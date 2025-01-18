@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFQ Creation page</title>
+</head>
+<body>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #f8f9fa;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 16px;
+        }
+
+        .header {
+            text-align: left;
+            width: 100%;
+            margin-top: 100px;
+            padding-left: 10%;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin-top: 40px;
+            max-width: 1200px;
+        }
+
+        .procedure-box, .drop-box {
+            width: 48%; /* Both boxes take up 50% minus margin space */
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        .procedure-box {
+            background-color: #f9f9f9;
+            border: 2px solid #007BFF;
+            border-radius: 8px;
+        }
+
+        .drop-box {
+            background-color: #f9f9f9;
+            border: 2px dashed #007BFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #007BFF;
+            cursor: pointer;
+        }
+
+        .drop-box.hover {
+            background-color: #e6f0ff;
+        }
+
+        .file-list {
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .file-list li {
+            margin-bottom: 10px;
+        }
+
+        .generate-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .generate-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar fixed-top bg-body-tertiary">
+        <div class="container-fluid">
+            <img src="WhatsApp Image 2025-01-15 at 2.25.12 PM.jpeg" alt="Logo" width="180" height="60">            
+            <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+            <a class="nav-link" href="#">Search Vendor</a>
+            <a class="nav-link" href="#">RFQ Management</a>
+            <a class="nav-link" href="#">Technical Evaluation</a>
+            <a class="nav-link" href="#">Compare received quotes</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="#">My Account</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Edit Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Vendor Management</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Project Management</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Change Password</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="buyer-rfq-sec-1 buyer-rfq-sec-tab"><div class="container-fluid"><div class="row"><div class="col-md-12"><div class="tabs-container"><button class="tab ">Manage Group RFQ</button><button class="tab active">Create RFQs</button></div><div class="create-rfq-con"><div class="details-table mt-0"><div class="col-md-3 mb-3"><h4>Select Project</h4><div class=" css-b62m3t-container"><span id="react-select-13-live-region" class="css-7pg0cj-a11yText"></span><span aria-live="polite" aria-atomic="false" aria-relevant="additions text" role="log" class="css-7pg0cj-a11yText"></span><div class=" css-13cymwt-control"><div class=" css-hlgwow"><div class=" css-1jqq78o-placeholder" id="react-select-13-placeholder">Select</div><div class=" css-19bb58m" data-value=""><input class="" autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-13-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" role="combobox" aria-activedescendant="" aria-describedby="react-select-13-placeholder" value="" style="color: inherit; background: 0px center; opacity: 1; width: 100%; grid-area: 1 / 2; font: inherit; min-width: 2px; border: 0px; margin: 0px; outline: 0px; padding: 0px;"></div></div><div class=" css-1wy0on6"><span class=" css-1u9des2-indicatorSeparator"></span><div class=" css-1xc3v61-indicatorContainer" aria-hidden="true"><svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" class="css-8mmkcg"><path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path></svg></div></div></div><input name="project_id" type="hidden" value=""></div></div><h4>Review Products</h4><div class="table-responsive"><table class="table table-striped "><thead><tr><th>Name of product</th><th>Size &amp; specifications</th><th>Quantity</th><th class="w200">Technical Datasheet (TDS)</th><th class="w200">Quality Assurance Plan(QAP)</th><th>Product Comments</th><th>Selected vendors</th><th>Action</th><th>Technical Evaluation</th></tr></thead><tbody><tr><td>VALVE</td><td><div class="d-flex flex-column justify-content-center align-items-center"><input type="text" placeholder="Grade, Material and other Specs" class="w-100 mb-3" value=""><div class="d-flex gap-2 mb-2"><input type="text" placeholder="Size" class="w-100" value=""><span>OR</span><label class="upload uploadInlineFile d-flex align-items-center"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="file" class="svg-inline--fa fa-file me-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"></path></svg> Upload<input type="file" accept=".pdf, .docx, .doc, .xlsx, .xls, .csv, .png, .jpg, .jpeg" multiple=""></label></div></div></td><td><div class="d-flex flex-column"><input type="number" min="0" placeholder="Quantity" class="form-control me-0 mb-3" aria-label="Quantity input with dropdown button" value=""><input type="text" placeholder="Unit" class="form-control me-0 mb-2" aria-label="Unit Details" value=""></div></td><td class="w200"><p><div><p>No TDS file found in our system!</p></div><p class="m-4"><span>OR</span></p><p><label class="upload uploadInlineFile d-flex align-items-center"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="file" class="svg-inline--fa fa-file me-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"></path></svg> Upload<input type="file" accept=".pdf, .docx, .doc, .xlsx, .xls, .csv, .png, .jpg, .jpeg" multiple=""></label></p></p></td><td class="w200"><p><div><p>No QAP file found in our system!</p></div><p class="m-4"><span>OR</span></p><p><label class="upload uploadInlineFile "><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="file" class="svg-inline--fa fa-file me-2" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"></path></svg> Upload<input type="file" accept=".pdf, .docx, .doc, .xlsx, .xls, .csv, .png, .jpg, .jpeg" multiple=""></label></p></p></td><td><input type="text" placeholder="Add Comments..." class="item_comment" value=""></td><td><span><a class="page-link" href="/dashboard/buyer/rfq-management-vendor?productid=7625&amp;variant=0">View selected vendors (1)</a></span></td><td><button class="upload mr-2 mb-2"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash" class="svg-inline--fa fa-trash " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg> Remove</button><button class="upload"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-plus" class="svg-inline--fa fa-circle-plus " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"></path></svg> Add variant</button></td><td><button class="upload"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-plus" class="svg-inline--fa fa-circle-plus " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"></path></svg> Add Clauses</button></td></tr><div></div></tbody></table></div><div class="float-end addmore"><a class="me-2" href="/vendor/all">Add More Products</a></div><div class="create-rfq-con-2 sc-pt-50"><div class="row"><div class="col-md-8 createR-ffq-1"><h4>Suggested Terms</h4><ol class="custom-ol"><li><input type="checkbox" id="term-item-1" checked=""><label for="term-item-1">Manufacturing Clearance: All items shall be manufactured after providing you with manufacturing clearance
+</label></li><li><input type="checkbox" id="term-item-2" checked=""><label for="term-item-2">Inspection: Materials will be Inspected at your works by approved Third Party Inspection Agency (TPIA) as per Approved QAP only.
+</label></li><li><input type="checkbox" id="term-item-3" checked=""><label for="term-item-3">Testing Certificates: The Manufacturing Test certificate, Internal Inspection Report by TPIA &amp; All materials Test Certificate shall be dispatched by the vendor to our Office along with the materials without any extra charges. All Testing shall be carried out as per approved QAP/ITP
+</label></li><li><input type="checkbox" id="term-item-4" checked=""><label for="term-item-4">Other Important Original Documents: All Original documents including Tax Invoice, E-Way Bill, IRN &amp; IVR along with Material Test Certificate, Manufacturer's Test Certificate, Internal Inspection Report to be courier to our Office
+</label></li><li><input type="checkbox" id="term-item-5" checked=""><label for="term-item-5">Warranty: The material are to be guaranteed by you against defective design, material and workmanship for a period of 18 months from the date of receipt of material or 12 months from the date of commissioning whichever is earlier. Any defect found during the course of guarantee period, must be replaced/rectified free of cost within 5 days of receipt of such information, in case you fail to attend the same , it will be done through other sources and all expenses incurred towards such replacement/rectification will be borne by you.
+</label></li><li><input type="checkbox" id="term-item-6" checked=""><label for="term-item-6">Quantity Variation: The quantities indicated in this may vary due to engineering &amp; Actual site requirement. We reserve our right to change the size/quantities due to such change without any increase in prices. Any decreases in your prices shall be passed to our company.
+</label></li><li><input type="checkbox" id="term-item-7" checked=""><label for="term-item-7">Shortage &amp; Rejection: In case any shortage/rejection is observed at the time of delivery of goods at final destination, such items shall be replaced within seven (7) days from the date of receipt of any such notice from our end
+</label></li><li><input type="checkbox" id="term-item-8" checked=""><label for="term-item-8">Order Cancellation: Our company reserves the right to cancel the order due to non-satisfactory performance of the vendor without any prior notice</label></li></ol></div><div class="col-md-8 createR-ffq-2"><form action="#" class="add-your-term-form"><div class="form-group"><label for="username">Add your own terms (Optional)</label><textarea name="comment" id="comment" placeholder="You can mention your terms regarding Freight Charges, Payment Terms, Performance Bank Guarantee, Packing &amp; Forwarding Charges, Delivery Period, Liquidated Damages, Transit Insurance and more" cols="2" rows="5" class=""></textarea></div><div class="row mt-2"><div class="custom-file"><label for="customFile" class="custom-file-label">Upload Your Terms (Optional)</label><input type="file" accept=".pdf, .docx, .doc, .xlsx, .xls, .csv, .png, .jpg, .jpeg" class="custom-file-input" id="customFile" multiple=""></div></div><div class="row mt-2"><div class="col-md-6"><div class="form-group"><label for="username">Email <sup>*</sup></label><input name="response_email" type="email" id="response_email" placeholder="Enter Email" value="dhruvsaxena220904@gmail.com"></div></div><div class="col-md-6"><div class="form-group"><label for="username">Contact person <sup>*</sup></label><input name="contact_name" type="text" id="contact_name" placeholder="Enter Contact person" value="Dhruv Saxena"></div></div><div class="col-md-6"><div class="form-group"><label for="username">Contact Number <sup>*</sup></label><input name="contact_number" type="text" id="contact_number" placeholder="Enter Contact Number" value="8349752249"></div></div><div class="col-md-6"><div class="form-group"><label for="username">Company Name <sup>*</sup></label><input name="company_name" type="text" id="company_name" placeholder="Enter Company Name" value="student"></div></div></div><div class="row mb-2"><div class="col-md-4"><div class="form-group"><label for="username">RFQ Type (Optional)</label><select name="rfq_type" id="rfq_type" placeholder="Enter RFQ Type"><option value="">Select RFQ Type</option><option value="budgetary">Budgetary</option><option value="firm">Firm</option></select></div></div><div class="col-md-4"><div class="form-group"><label for="username">Reverse Auction <sup>*</sup></label><select name="reverse_auction" id="reverse_auction" placeholder="Enter Reverse Auction"><option value="1">Enable</option><option value="0">Disable</option></select></div></div><div class="col-md-4"><div class="form-group"><label for="username">Procurement end date <sup>*</sup></label><input name="bid_end_date" type="date" id="bid_end_date" placeholder="Enter Procurement end date" value="2025-02-10"></div></div><div class="col-md-12"><div class="form-group"><label for="username">Delivery location (Optional)</label><input name="location" type="text" id="location" placeholder="Enter Delivery location" value=""></div></div></div><button type="submit" class="btn btn-secondary mt-2 me-3">Create RFQ</button><button type="button" class="btn btn-secondary mt-2">Save Changes</button></form><p class="mt-2">This action will send RFQs to all selected vendors for the relevant product.</p></div></div></div></div></div></div></div></div></section>
+
+    
+</body>
+</html>
