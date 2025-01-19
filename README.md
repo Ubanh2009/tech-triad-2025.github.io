@@ -3,6 +3,8 @@
 
 This project was developed as part of the Tech Triad Hackathon, under the Revamp of Website theme. The goal was to improve the usability and efficiency of a website by adding new functionality and enhancing existing features. Our work aimed to provide users with a seamless experience while navigating and interacting with the platform.
 
+Deployed Link: https://nextjs-utsab-bhattacharjees-projects.vercel.app
+
 
 ## Contributors
 
