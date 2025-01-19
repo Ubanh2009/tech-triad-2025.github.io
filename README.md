@@ -25,6 +25,8 @@ User-friendly interface for selecting and applying filters.
 
 ### 2. Customized RFQ Comparison Page
 
+On clicking on RFQ number Comparison Chart will open up.
+
 Revamped the RFQ (Request for Quotation) comparison page for better usability.
 
 Enhanced layout to display comparisons more clearly and intuitively.
@@ -38,5 +40,7 @@ Integrated additional features for managing RFQs efficiently.
 Improved user interface to simplify RFQ creation and tracking.
 
 Enabled detailed insights and analytics for RFQ management.
+
+
 
 
